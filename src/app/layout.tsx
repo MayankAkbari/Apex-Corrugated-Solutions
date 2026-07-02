@@ -11,6 +11,11 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://apexcorrugated.in"),
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   title: {
     default: "Apex Corrugated Solutions | Premium Industrial Packaging Manufacturer India",
     template: "%s | Apex Corrugated Solutions"
