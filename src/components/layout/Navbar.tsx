@@ -4,7 +4,10 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { ChevronDown, Menu, X, PhoneCall, Sparkles, Box, Shield, Factory, Award } from 'lucide-react';
+import { 
+  ChevronDown, Menu, X, PhoneCall, Sparkles, Box, Shield, Factory, 
+  Award, User, LogOut, ArrowRight 
+} from 'lucide-react';
 import { PRODUCTS, INDUSTRIES } from '@/data/mockData';
 import { QuoteModal } from '@/components/common/QuoteModal';
 
@@ -17,7 +20,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 15) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -33,23 +36,20 @@ export const Navbar: React.FC = () => {
     { label: 'Products', href: '/products', hasMega: 'products' as const },
     { label: 'Industries', href: '/industries', hasMega: 'industries' as const },
     { label: 'Infrastructure', href: '/infrastructure' },
-    { label: 'Quality', href: '/quality' },
-    { label: 'Gallery', href: '/gallery' },
     { label: 'Reviews', href: '/reviews' },
-    { label: 'Blog', href: '/blog' },
-    { label: 'FAQ', href: '/faq' },
+    { label: 'Quality', href: '/quality' },
     { label: 'Contact', href: '/contact' },
   ];
 
   return (
     <div className="w-full">
-      {/* Top Bar Announcement / Contact Strip - High Contrast Executive Royal Blue */}
+      {/* Top Announcement Strip - Compact & Professional for SEO/Trust */}
       <div className="bg-[#002E73] text-white/95 text-xs py-2 px-4 md:px-8 border-b border-[#002E73]/40 flex items-center justify-between shadow-xs z-50 relative">
         <div className="flex items-center gap-6">
           <span className="flex items-center gap-1.5 font-semibold text-[#FDF9F3]">
             <Award size={14} className="text-[#B88746]" /> ISO 9001:2015 & FSC Certified Industrial Packaging Manufacturer
           </span>
-          <span className="hidden md:inline text-white/70">| Gujarat, India • Global Export Logistics</span>
+          <span className="hidden md:inline text-white/70">| High-Strength Corrugated Solutions • Global Export</span>
         </div>
         <div className="flex items-center gap-6 font-semibold">
           <a href="tel:+919820011223" aria-label="Call +91 98200 11223" className="hover:text-[#B88746] transition-colors flex items-center gap-1.5 text-white">
@@ -61,34 +61,36 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Main Header Container with Luminous Light Glass Header */}
+      {/* Main Header Container - Ivory/Light Cream Floating Capsule Design */}
       <header
         role="navigation"
         aria-label="Main Navigation"
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-40 transition-all duration-300 px-4 sm:px-8 lg:px-10 ${
           isScrolled
-            ? 'py-2.5 bg-white/92 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] border-b border-slate-200/80'
-            : 'py-4 bg-white border-b border-slate-100'
+            ? 'py-3 bg-[#FAFAF9]/95 backdrop-blur-xl shadow-md border-b border-slate-200/60'
+            : 'py-5 bg-[#FAFAF9]'
         }`}
       >
-        <div className="max-w-[1700px] mx-auto px-4 md:px-8 flex items-center justify-between gap-4">
+        <div className="max-w-[1780px] mx-auto flex items-center justify-between gap-6">
           
-          {/* Brand Logo */}
+          {/* Brand Logo - Left Aligned */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="relative w-44 md:w-56 h-12 md:h-14 bg-white rounded-xl p-1 border border-slate-200/80 shadow-xs group-hover:border-[#002E73]/40 group-hover:shadow-md transition-all flex items-center justify-center">
+            <div className="relative w-48 md:w-60 h-12 md:h-14 bg-white rounded-2xl p-1.5 border border-slate-200/80 shadow-xs group-hover:border-[#002E73]/40 group-hover:shadow-md transition-all flex items-center justify-center">
               <Image
                 src="/logo.png"
                 alt="Apex Corrugated Solutions Logo"
                 fill
-                className="object-contain p-1"
+                className="object-contain p-1.5"
                 priority
               />
             </div>
           </Link>
-
-          {/* Frosted Light Navigation Bar Capsule */}
-          <nav className="hidden lg:flex items-center px-3 py-1.5 rounded-2xl bg-slate-100/80 border border-slate-200/80 shadow-inner">
-            <ul className="flex items-center gap-1 xl:gap-1.5">
+          
+          {/* Right Floating White Pill Bar (Matching Uploaded Image Reference) */}
+          <div className="hidden lg:flex items-center bg-white rounded-full p-2 pl-6 pr-3.5 border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.06)] gap-5">
+            
+            {/* Navigation Links inside White Pill */}
+            <ul className="flex items-center gap-1 sm:gap-1.5">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
                 return (
@@ -100,19 +102,24 @@ export const Navbar: React.FC = () => {
                   >
                     <Link
                       href={link.href}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-1 ${
+                      className={`px-3.5 py-2 rounded-full text-[13px] font-bold transition-all flex items-center gap-1 ${
                         isActive
-                          ? 'bg-[#002E73] text-white shadow-sm'
-                          : 'text-slate-600 hover:text-[#002E73] hover:bg-white shadow-none'
+                          ? 'bg-slate-100 text-[#002E73] shadow-xs'
+                          : 'text-[#001633] hover:text-[#002E73] hover:bg-slate-50'
                       }`}
                     >
                       <span>{link.label}</span>
-                      {link.hasMega && <ChevronDown size={12} className={`transition-transform duration-200 ${megaMenuOpen === link.hasMega ? 'rotate-180 text-[#B88746]' : ''}`} />}
+                      {link.hasMega && (
+                        <ChevronDown 
+                          size={13} 
+                          className={`transition-transform duration-200 ${megaMenuOpen === link.hasMega ? 'rotate-180 text-[#B88746]' : 'text-slate-400'}`} 
+                        />
+                      )}
                     </Link>
 
                     {/* Mega Menu Dropdown */}
                     {link.hasMega && megaMenuOpen === link.hasMega && (
-                      <div className="absolute top-full left-0 pt-3 w-[640px] -translate-x-1/4 z-50 animate-fadeIn">
+                      <div className="absolute top-full left-0 pt-4 w-[650px] -translate-x-1/4 z-50 animate-fadeIn">
                         <div className="p-6 rounded-3xl bg-white border border-slate-200 shadow-2xl text-slate-800 grid grid-cols-2 gap-4">
                           {link.hasMega === 'products' ? (
                             <>
@@ -170,45 +177,83 @@ export const Navbar: React.FC = () => {
                 );
               })}
             </ul>
-          </nav>
 
-          {/* Action CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+            {/* Vertical Divider */}
+            <div className="w-[1px] h-6 bg-slate-200 shrink-0" />
+
+            {/* Dark Navy Pill Button Inside White Capsule (Exact Match) */}
             <button
               onClick={() => setIsQuoteOpen(true)}
-              className="px-5 py-2.5 rounded-xl glass-button-gold text-white font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
+              className="bg-[#001633] hover:bg-[#002E73] transition-all text-white rounded-full px-5 py-2.5 text-xs font-bold flex items-center gap-2.5 shadow-md shrink-0 group"
             >
-              <Sparkles size={15} /> Get Free Quote
+              <User size={14} className="text-[#B88746] group-hover:scale-110 transition-transform" />
+              <span>Get Instant Quote (RFQ)</span>
             </button>
+
+            {/* Arrow Button Right Outside Dark Pill inside White Capsule */}
+            <Link
+              href="/admin"
+              aria-label="Go to Admin Management Portal"
+              title="Admin Portal"
+              className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all shrink-0 hover:scale-105"
+            >
+              <LogOut size={16} className="rotate-180 text-[#002E73]" />
+            </Link>
           </div>
 
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
-            className="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-800 border border-slate-200 hover:bg-slate-200 transition-colors"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile menu toggle button */}
+          <div className="lg:hidden flex items-center gap-3">
+            <button
+              onClick={() => setIsQuoteOpen(true)}
+              className="px-4 py-2 rounded-full bg-[#001633] text-white font-bold text-xs flex items-center gap-1.5 shadow-sm"
+            >
+              <User size={13} className="text-[#B88746]" /> Quote
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Navigation Menu"
+              className="p-2.5 rounded-2xl bg-white text-slate-800 border border-slate-200 hover:bg-slate-100 transition-colors shadow-sm"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 p-6 bg-white border-t border-slate-200 text-slate-900 max-h-[85vh] overflow-y-auto shadow-2xl">
+          <div className="lg:hidden mt-4 p-6 bg-white rounded-3xl border border-slate-200 text-slate-900 shadow-2xl max-h-[85vh] overflow-y-auto">
             <ul className="space-y-2">
               {navLinks.map(link => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`block px-4 py-3 rounded-xl font-bold uppercase text-sm tracking-wider ${
-                      pathname === link.href ? 'bg-[#002E73] text-white shadow-sm' : 'text-slate-600 hover:bg-slate-100'
+                    className={`block px-4 py-3 rounded-2xl font-bold text-sm tracking-wide ${
+                      pathname === link.href ? 'bg-[#002E73] text-white shadow-sm' : 'text-slate-700 hover:bg-slate-100'
                     }`}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/blog"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-3 rounded-2xl font-bold text-sm tracking-wide text-slate-700 hover:bg-slate-100"
+                >
+                  Blog & Insights
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-3 rounded-2xl font-bold text-sm tracking-wide text-slate-700 hover:bg-slate-100"
+                >
+                  FAQ Knowledge Base
+                </Link>
+              </li>
             </ul>
             <div className="mt-6 pt-6 border-t border-slate-100 space-y-3">
               <button
@@ -216,13 +261,20 @@ export const Navbar: React.FC = () => {
                   setMobileMenuOpen(false);
                   setIsQuoteOpen(true);
                 }}
-                className="w-full py-3.5 rounded-xl glass-button-gold text-white font-bold text-sm uppercase tracking-wider shadow-lg"
+                className="w-full py-3.5 rounded-2xl bg-[#001633] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg"
               >
-                Get Free Quote
+                <User size={16} className="text-[#B88746]" /> Get Free Quote (RFQ)
               </button>
+              <Link
+                href="/admin"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 rounded-2xl bg-slate-100 border border-slate-200 text-center block font-bold text-xs text-[#002E73] hover:bg-slate-200 transition-colors"
+              >
+                Access Master Admin Portal [→
+              </Link>
               <a
                 href="tel:+919820011223"
-                className="w-full py-3 rounded-xl bg-slate-100 border border-slate-200 text-center block font-semibold text-xs text-[#002E73] hover:bg-slate-200 transition-colors"
+                className="w-full py-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-center block font-semibold text-xs text-emerald-800 hover:bg-emerald-100 transition-colors"
               >
                 Call Engineer: +91 98200 11223
               </a>
