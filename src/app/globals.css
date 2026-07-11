@@ -2,104 +2,138 @@
 
 @theme inline {
   --color-royal-blue: #002E73;
-  --color-industrial-silver: #B2B2B2;
+  --color-royal-blue-light: #EBF2FA;
+  --color-industrial-silver: #64748B;
   --color-premium-gold: #B88746;
+  --color-premium-gold-light: #FDF9F3;
   --color-dark-navy: #001633;
-  --color-light-silver: #F5F6F8;
-  --color-graphite: #202020;
+  --color-light-silver: #F5F7FA;
+  --color-graphite: #0F172A;
+  --color-paper-light: #FAFAF9;
+  --color-border-subtle: #E2E8F0;
 }
 
 :root {
-  --background: #F5F6F8;
-  --foreground: #202020;
+  --background: #FAFAF9;
+  --foreground: #0F172A;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - Light Theme */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #001633;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #002E73;
+  background: #CBD5E1;
   border-radius: 5px;
-  border: 2px solid #001633;
+  border: 2px solid #F1F5F9;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #B88746;
+  background: #002E73;
 }
 
-/* Liquid Glass Design System Utilities */
+/* Liquid Glass Design System Utilities - Highly Modern Light Theme */
 .glass-nav {
-  background: rgba(0, 22, 51, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(178, 178, 178, 0.15);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(0, 46, 115, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 10px 30px -10px rgba(0, 46, 115, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(0, 46, 115, 0.06);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: rgba(184, 135, 70, 0.4);
-  box-shadow: 0 20px 40px -15px rgba(0, 46, 115, 0.18);
+  background: #FFFFFF;
+  border-color: rgba(184, 135, 70, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(0, 46, 115, 0.14);
   transform: translateY(-4px);
 }
 
+.glass-card-light {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -4px rgba(0, 46, 115, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card-light:hover {
+  border-color: #002E73;
+  box-shadow: 0 12px 30px -8px rgba(0, 46, 115, 0.12);
+  transform: translateY(-3px);
+}
+
+/* High Contrast Executive Card for specialty banners */
 .glass-card-dark {
-  background: rgba(0, 22, 51, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(178, 178, 178, 0.15);
-  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(0, 22, 51, 0.96), rgba(0, 46, 115, 0.94));
+  border: 1px solid rgba(184, 135, 70, 0.35);
+  box-shadow: 0 15px 35px -10px rgba(0, 22, 51, 0.25);
+  color: #FFFFFF;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card-dark:hover {
-  background: rgba(0, 46, 115, 0.75);
-  border-color: rgba(184, 135, 70, 0.5);
-  box-shadow: 0 20px 45px 0 rgba(184, 135, 70, 0.15);
+  border-color: rgba(184, 135, 70, 0.6);
+  box-shadow: 0 20px 45px -10px rgba(184, 135, 70, 0.2);
   transform: translateY(-4px);
 }
 
 .glass-button-gold {
-  background: linear-gradient(135deg, rgba(184, 135, 70, 0.9), rgba(150, 106, 48, 1));
+  background: linear-gradient(135deg, #B88746 0%, #966A30 100%);
   box-shadow: 0 4px 15px rgba(184, 135, 70, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-button-gold:hover {
-  box-shadow: 0 6px 25px rgba(184, 135, 70, 0.6);
+  box-shadow: 0 8px 25px rgba(184, 135, 70, 0.5);
   transform: translateY(-2px);
 }
 
 .glass-button-blue {
-  background: linear-gradient(135deg, rgba(0, 46, 115, 0.9), rgba(0, 22, 51, 1));
-  box-shadow: 0 4px 15px rgba(0, 46, 115, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #002E73 0%, #001633 100%);
+  box-shadow: 0 4px 15px rgba(0, 46, 115, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-button-blue:hover {
-  box-shadow: 0 6px 25px rgba(0, 46, 115, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 46, 115, 0.4);
   transform: translateY(-2px);
+}
+
+/* Subtle industrial grid and dot backgrounds */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 46, 115, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 46, 115, 0.04) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(rgba(0, 46, 115, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 @keyframes float {
@@ -108,6 +142,15 @@ body {
   100% { transform: translateY(0px); }
 }
 
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
 }

@@ -13,6 +13,7 @@ export const FloatingWidgets: React.FC = () => {
         {/* Instant Quote Button */}
         <button
           onClick={() => setIsQuoteOpen(true)}
+          aria-label="Calculate Box Packaging Price & Get Free Quote"
           className="flex items-center gap-2.5 px-5 py-3 rounded-full glass-button-gold text-white font-bold shadow-2xl hover:scale-105 active:scale-95 transition-all group"
           title="Calculate Box Packaging Price"
         >
@@ -25,7 +26,8 @@ export const FloatingWidgets: React.FC = () => {
           href="https://wa.me/919820011223?text=Hello%20Apex%20Corrugated%20Solutions,%20I%20am%20interested%20in%20your%20industrial%20packaging%20solutions."
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-2xl hover:scale-110 transition-all border-2 border-white/40"
+          aria-label="Chat directly on WhatsApp with our Packaging Engineer"
+          className="flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-2xl hover:scale-110 transition-all border-2 border-white/80"
           title="Chat on WhatsApp"
         >
           <MessageCircle size={28} className="fill-current" />

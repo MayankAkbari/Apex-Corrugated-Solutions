@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Award, CheckCircle2, FlaskConical, Droplets, ArrowRight, Sparkles, Activity, Layers, Wrench } from 'lucide-react';
+import { ShieldCheck, Award, CheckCircle2, FlaskConical, Droplets, ArrowRight, Sparkles, Activity, Layers, Wrench, Check } from 'lucide-react';
 import { QuoteModal } from '@/components/common/QuoteModal';
 
 export default function QualityPage() {
@@ -15,7 +15,7 @@ export default function QualityPage() {
       id: 1,
       name: 'Edge Crush Test (ECT)',
       unit: 'lbs/in or kN/m',
-      desc: 'Measures the edgewise compressive strength of corrugated board. This directly correlates to the stacking strength of the finished carton under high pallet loads.',
+      desc: 'Measures the edgewise compressive strength of corrugated board. This directly correlates to the stacking strength of the finished carton under heavy pallet loads during transit.',
       target: 'Up to 90+ lbs/in on 7-Ply Heavy Wall',
       icon: Activity
     },
@@ -69,36 +69,36 @@ export default function QualityPage() {
   ];
 
   return (
-    <div className="overflow-hidden pb-24">
+    <div className="overflow-hidden pb-24 bg-[#FAFAF9] text-slate-900" itemScope itemType="https://schema.org/WebPage">
       
-      {/* Hero Banner */}
-      <section className="relative bg-[#001633] text-white py-24 px-4 md:px-8 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#002E73]/40 blur-[140px] pointer-events-none" />
-        <div className="max-w-[1500px] mx-auto relative z-10 text-center space-y-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[#B88746] text-xs font-bold uppercase tracking-widest border border-white/20">
-            <Award size={14} /> Zero Defect Assurance
+      {/* Hero Banner - Luminous Light Executive Theme */}
+      <section className="relative bg-gradient-to-b from-white via-slate-50 to-white py-24 px-4 md:px-8 border-b border-slate-200">
+        <div className="absolute inset-0 bg-[radial-gradient(#002E73_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.05] pointer-events-none" />
+        <div className="max-w-[1550px] mx-auto relative z-10 text-center space-y-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#002E73]/10 text-[#002E73] text-xs font-bold uppercase tracking-widest border border-[#002E73]/20">
+            <Award size={14} className="text-[#B88746]" /> Zero Defect Assurance & ASTM Verification
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
-            Quality Assurance & <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#B2B2B2] to-[#B88746]">Lab Testing</span>
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900" itemProp="name">
+            Quality Assurance & <span className="text-[#002E73] underline decoration-[#B88746] decoration-4 underline-offset-8">Lab Testing</span>
           </h1>
-          <p className="text-base sm:text-xl text-[#B2B2B2] max-w-3xl mx-auto leading-relaxed">
-            Every roll of Kraft paper entering our plant undergoes rigorous computerized laboratory testing. Explore our interactive 6-stage quality verification protocol.
+          <p className="text-base sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-normal" itemProp="description">
+            Every roll of Kraft paper entering our plant undergoes computerized laboratory testing. Explore our interactive 6-stage quality verification protocol engineered for extreme supply chain durability.
           </p>
         </div>
       </section>
 
       {/* Interactive 6-Stage Testing Workflow Simulator */}
-      <section className="py-20 px-4 md:px-8 max-w-[1500px] mx-auto">
+      <section className="py-20 px-4 md:px-8 max-w-[1600px] mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#B88746]">Computerized Testing Lab</span>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#001633]">6-Stage QA Testing Simulator</h2>
-          <p className="text-gray-600">Select any inspection stage below to inspect our automated lab verification metrics and standards.</p>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#B88746]">Computerized Testing Laboratory</span>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900">6-Stage QA Testing Simulator</h2>
+          <p className="text-slate-600 font-medium">Select any inspection stage below to examine our automated laboratory verification metrics and engineering thresholds.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Stage Buttons List */}
-          <div className="lg:col-span-5 space-y-3">
+          <div className="lg:col-span-5 space-y-3.5">
             {testStages.map((stage, idx) => {
               const IconComp = stage.icon;
               return (
@@ -107,22 +107,22 @@ export default function QualityPage() {
                   onClick={() => setActiveStage(idx)}
                   className={`w-full p-5 rounded-2xl transition-all flex items-center justify-between text-left border ${
                     activeStage === idx
-                      ? 'bg-[#002E73] text-white shadow-xl border-[#B88746]'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border-gray-200'
+                      ? 'bg-[#002E73] text-white shadow-xl border-[#002E73]'
+                      : 'bg-white text-slate-700 hover:bg-slate-50 border-slate-200 shadow-xs'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm ${
-                      activeStage === idx ? 'bg-[#B88746] text-white' : 'bg-gray-100 text-[#002E73]'
+                      activeStage === idx ? 'bg-[#B88746] text-white' : 'bg-slate-100 text-[#002E73]'
                     }`}>
                       0{stage.id}
                     </div>
                     <div>
                       <h4 className="font-bold text-base">{stage.name}</h4>
-                      <span className={`text-xs ${activeStage === idx ? 'text-[#B2B2B2]' : 'text-gray-400'}`}>Metric: {stage.unit}</span>
+                      <span className={`text-xs ${activeStage === idx ? 'text-slate-200' : 'text-slate-500'}`}>Metric: {stage.unit}</span>
                     </div>
                   </div>
-                  <IconComp size={20} className={activeStage === idx ? 'text-[#B88746]' : 'text-gray-400'} />
+                  <IconComp size={20} className={activeStage === idx ? 'text-[#B88746]' : 'text-slate-400'} />
                 </button>
               );
             })}
@@ -134,32 +134,32 @@ export default function QualityPage() {
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="lg:col-span-7 p-8 md:p-12 rounded-3xl glass-card bg-white border border-gray-200 shadow-2xl space-y-6"
+            className="lg:col-span-7 p-8 md:p-12 rounded-3xl bg-white border border-slate-200 shadow-xl space-y-6"
           >
-            <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-              <span className="px-4 py-1 rounded-full bg-[#002E73] text-[#B88746] text-xs font-bold uppercase tracking-wider">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+              <span className="px-4 py-1.5 rounded-full bg-[#002E73] text-white text-xs font-bold uppercase tracking-wider">
                 Lab Stage 0{testStages[activeStage].id} Verified
               </span>
-              <span className="text-xs font-mono text-gray-400">Standard: ASTM D5639</span>
+              <span className="text-xs font-mono font-bold text-slate-500">Standard: ASTM D5639 / TAPPI T811</span>
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-2xl sm:text-4xl font-extrabold text-[#001633]">
+              <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
                 {testStages[activeStage].name}
               </h3>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
                 {testStages[activeStage].desc}
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-[#001633] text-white space-y-2 border border-[#B88746]/30">
-              <span className="text-xs font-bold uppercase text-[#B88746] block">Guaranteed Performance Threshold:</span>
-              <p className="text-xl font-mono font-bold text-emerald-400">
-                ✓ {testStages[activeStage].target}
+            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-slate-900 space-y-2">
+              <span className="text-xs font-bold uppercase text-[#002E73] block">Guaranteed Performance Threshold:</span>
+              <p className="text-xl font-mono font-bold text-emerald-700 flex items-center gap-2">
+                <Check size={20} className="text-emerald-600 stroke-[3]" /> {testStages[activeStage].target}
               </p>
             </div>
 
-            <div className="pt-4 flex items-center justify-between text-xs text-gray-500 font-semibold">
+            <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slate-500 font-semibold border-t border-slate-100">
               <span>Computerized Certificate of Analysis (COA) issued with every shipment.</span>
               <button
                 onClick={() => setIsQuoteOpen(true)}
@@ -174,25 +174,25 @@ export default function QualityPage() {
       </section>
 
       {/* Certifications Grid */}
-      <section className="py-20 bg-gradient-to-b from-[#F5F6F8] to-white border-t border-gray-200 px-4 md:px-8">
-        <div className="max-w-[1500px] mx-auto">
+      <section className="py-24 bg-white border-t border-slate-200 px-4 md:px-8">
+        <div className="max-w-[1600px] mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#B88746]">Global Compliance</span>
-            <h2 className="text-3xl sm:text-4xl font-black text-[#001633]">Accreditations & Standards</h2>
+            <span className="text-xs font-bold uppercase tracking-widest text-[#B88746]">Global Compliance Standards</span>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900">Accreditations & Quality Standards</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert) => (
-              <div key={cert.name} className="p-8 rounded-3xl glass-card bg-white border border-gray-200 shadow-xl space-y-4 flex flex-col justify-between">
+              <div key={cert.name} className="p-8 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm hover:shadow-lg space-y-4 flex flex-col justify-between transition-all duration-300">
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-[#002E73] text-[#B88746] flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-[#002E73]/10 text-[#002E73] flex items-center justify-center mb-4">
                     <ShieldCheck size={24} />
                   </div>
-                  <h4 className="text-lg font-bold text-[#001633]">{cert.name}</h4>
-                  <p className="text-xs text-gray-600 mt-2 leading-relaxed">{cert.desc}</p>
+                  <h4 className="text-lg font-bold text-slate-900">{cert.name}</h4>
+                  <p className="text-xs text-slate-600 mt-2 leading-relaxed font-medium">{cert.desc}</p>
                 </div>
-                <div className="pt-4 border-t border-gray-100 text-[11px] font-bold text-emerald-600 flex items-center gap-1.5">
-                  <CheckCircle2 size={14} />
+                <div className="pt-4 border-t border-slate-200/80 text-[11px] font-bold text-emerald-700 flex items-center gap-1.5">
+                  <CheckCircle2 size={16} className="text-emerald-600" />
                   <span>Audit Active & Current</span>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { PRODUCTS } from '@/data/mockData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://apexcorrugated.in';
@@ -22,21 +23,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  const productSlugs = [
-    'precision-corrugated-boxes',
-    '7-ply-heavy-duty-boxes',
-    'high-graphic-printed-cartons',
-    'duplex-die-cut-boxes',
-    'master-shipping-cartons',
-    'seaworthy-export-packaging',
-    'industrial-machinery-boxes',
-    'custom-honeycomb-partitions'
-  ].map((slug) => ({
-    url: `${baseUrl}/products/${slug}`,
+  const productRoutes = PRODUCTS.map((prod) => ({
+    url: `${baseUrl}/products/${prod.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.9,
   }));
 
-  return [...routes, ...productSlugs];
+  return [...routes, ...productRoutes];
 }
