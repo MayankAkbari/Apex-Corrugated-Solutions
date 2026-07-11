@@ -65,25 +65,23 @@ export const Navbar: React.FC = () => {
       <header
         role="navigation"
         aria-label="Main Navigation"
-        className={`sticky top-0 z-40 transition-all duration-300 px-4 sm:px-8 lg:px-10 ${
+        className={`sticky top-0 z-50 w-full transition-all duration-300 px-4 sm:px-8 lg:px-10 ${
           isScrolled
-            ? 'py-3 bg-[#FAFAF9]/95 backdrop-blur-xl shadow-md border-b border-slate-200/60'
+            ? 'py-3 bg-[#FAFAF9]/98 backdrop-blur-xl shadow-md border-b border-slate-200/80'
             : 'py-5 bg-[#FAFAF9]'
         }`}
       >
         <div className="max-w-[1780px] mx-auto flex items-center justify-between gap-6">
           
-          {/* Brand Logo - Left Aligned */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="relative w-48 md:w-60 h-12 md:h-14 bg-white rounded-2xl p-1.5 border border-slate-200/80 shadow-xs group-hover:border-[#002E73]/40 group-hover:shadow-md transition-all flex items-center justify-center">
-              <Image
-                src="/logo.png"
-                alt="Apex Corrugated Solutions Logo"
-                fill
-                className="object-contain p-1.5"
-                priority
-              />
-            </div>
+          {/* Brand Logo - Left Aligned (No Background Box or Border) */}
+          <Link href="/" className="relative flex items-center w-48 md:w-56 h-12 md:h-14 shrink-0 group">
+            <Image
+              src="/logo.png"
+              alt="Apex Corrugated Solutions Logo"
+              fill
+              className="object-contain object-left group-hover:opacity-90 transition-opacity"
+              priority
+            />
           </Link>
           
           {/* Right Floating White Pill Bar (Matching Uploaded Image Reference) */}
